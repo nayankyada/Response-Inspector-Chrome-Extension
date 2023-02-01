@@ -9,6 +9,7 @@ module.exports = {
     options: path.resolve('src/options/options.jsx'),
     background: path.resolve('src/background/background.js'),
     contentScript: path.resolve('src/contentScript/contentScript.jsx'),
+    injected: path.resolve('src/injected.js'),
   },
   module: {
     rules: [
@@ -55,7 +56,7 @@ module.exports = {
   optimization: {
     splitChunks: {
       chunks(chunk) {
-        return chunk.name !== 'contentScript' && chunk.name !== 'background'
+        return chunk.name !== 'contentScript' && chunk.name !== 'injected' && chunk.name !== 'background'
       }
     },
   }
